@@ -2,6 +2,21 @@ import React, { useEffect, useState } from 'react'
 import './App.css';
 
 function App() {
+  let [number,setNumber]=useState(0)
+  let[value,setValue]=useState(0)
+useEffect(() =>{
+  alert("we clecked now")
+},[number])
+//e give empty array [] but whenever render runs then useffect hook automatically runs so we sometime
+//  we need to give value in empty array when ever this specific button runs then useeffect hook call 
+return(
+  <div>
+   <button onClick={() => setNumber(++number)}>Number{number}</button>
+   <br/>
+   <button onClick={() => setValue(++value)}>Number{value}</button>
+  </div>
+)
+
 
   
 // useEffect(() => {
@@ -27,37 +42,37 @@ function App() {
 //   )
 
 
-useEffect(() =>{
+// useEffect(() =>{
 
 
-async function asynsc() {
-  try{
-    const data= await fetch("https://api.github.com/users/AbdulMoiz8994/repos") 
-    const jsons=await data.json()
-    console.log(jsons) 
-    setRepos(jsons)
-  }catch(error){
-     return error
-  }
-}
-asynsc()
+// async function asynsc() {
+//   try{
+//     const data= await fetch("https://api.github.com/users/AbdulMoiz8994/repos") 
+//     const jsons=await data.json()
+//     console.log(jsons) 
+//     setRepos(jsons)
+//   }catch(error){
+//      return error
+//   }
+// }
+// asynsc()
 
-},[])
-let [repos,setRepos]=useState([{}])
-return(
-  <div>
-    <h1>This s all git Repositories of asynsc await</h1>
-    <ul>
-      {repos.map((listrepos,ind) =>{
-        return(
-        <li key={ind}>
-           {listrepos.name}
-        </li>
-        )
-      })}
-    </ul>
-  </div>
-)
+// },[])
+// let [repos,setRepos]=useState([{}])
+// return(
+//   <div>
+//     <h1>This s all git Repositories of asynsc await</h1>
+//     <ul>
+//       {repos.map((listrepos,ind) =>{
+//         return(
+//         <li key={ind}>
+//            {listrepos.name}
+//         </li>
+//         )
+//       })}
+//     </ul>
+//   </div>
+// )
 
 
 
